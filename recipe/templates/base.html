@@ -5,6 +5,15 @@
         <title>PyRecipe</title>
     </head>
     <body>
+        {% block extrabtns %}{% endblock %}
+        <div>
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+        <div>
+            <a href="#">Log out</a>
+            <a href="#">Log in</a> |
+            <a href="#">Register</a>
+        </div>
         {% block content %}{% endblock %}
     </body>
 </html>

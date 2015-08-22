@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h2>{{ recipe.name }}</h2>
+        <p>{{ recipe.description }}</p>
+        <p>This recipe was created by <b>{{ recipe.created_by }}</b> at {{ recipe.created }}</p>
+    </div>
+    <div>
+        <a href="#">New Comment</a>
+    </div>
+    <hr>
+    <div>
+        {% for comment in recipe.comment_set.all %}
+            <p>{{ comment.comment_text }}</p>
+            <p>By <b>{{ comment.commenter }}</b> at {{ comment.commented_at }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

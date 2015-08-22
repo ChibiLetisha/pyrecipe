@@ -4,5 +4,7 @@
     {% for recipe in recipe_list %}
         <h2>{{ recipe.name }}</h2>
         <p>{{ recipe.description }}</p>
+        <a href="{% url 'recipe-detail' recipe.slug %}">Read More</a> |
+        <a href="#">Comments</a>
     {% endfor %}
 {% endblock %}
