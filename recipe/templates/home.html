@@ -3,7 +3,7 @@
 {% block content %}
     {% for recipe in recipe_list %}
         <h2>{{ recipe.name }}</h2>
-        <p>{{ recipe.description }}</p>
+        <p>{{ recipe.description|truncatechars_html:180 }}</p>
         <a href="{% url 'recipe-detail' recipe.slug %}">Read More</a> |
         <a href="#">Comments</a>
     {% endfor %}
