@@ -6,9 +6,19 @@
         <p>{{ recipe.description }}</p>
         <p>This recipe was created by <b>{{ recipe.created_by }}</b> at {{ recipe.created }}</p>
     </div>
-    <div>
-        <a href="#">New Comment</a>
-    </div>
+    {% if user.is_authenticated %}
+        <div id="new-comment">
+            <form action="{% url "new-comment" object.slug %}" method="post">
+                {% csrf_token %}
+                <label for="id_comment_text">
+                    <textarea name="comment_text" id="id_comment_text" required placeholder="Write your comment here!"></textarea>
+                </label>
+                <div>
+                    <input type="submit" value="Create" />
+                </div>
+            </form>
+        </div>
+    {% endif %}
     <hr>
     <div>
         {% for comment in recipe.comment_set.all %}
